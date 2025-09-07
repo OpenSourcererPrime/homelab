@@ -47,3 +47,20 @@ spec:
       interval: 5m
   values:
     installCRDs: true
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    solvers:
+      - dns01:
+          route53:
+            region: us-east-1
+            accessKeyIDSecretRef:
+              name: opensourcerer-xyz-route53-credentials
+              key: username
+            secretAccessKeySecretRef:
+              name: opensourcerer-xyz-route53-credentials
+              key: password

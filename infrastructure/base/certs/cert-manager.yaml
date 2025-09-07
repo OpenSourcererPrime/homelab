@@ -55,7 +55,8 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    privateKeySecretRef: opensourcerer-xyz-issuer-account-key
+    privateKeySecretRef:
+      name: opensourcerer-xyz-issuer-account-key
     solvers:
       - dns01:
           route53:
